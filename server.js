@@ -7,16 +7,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.post('/', async (req, res) => {
-  const { file, fileName } = req.body;
+  const { file, fileName, rules } = req.body;
 
   const eslint = new ESLint({
     useEslintrc: false,
     overrideConfig: {
-      extends: [
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
-      ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         sourceType: 'module',
@@ -35,11 +30,7 @@ app.post('/', async (req, res) => {
         },
       },
       rules: {
-        eqeqeq: 'error',
-        'no-else-return': 'error',
-        camelcase: 'error',
-        'no-unused-vars': 'error',
-        'no-var': 'error',
+        ...rules,
       },
     },
   });
