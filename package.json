@@ -12,7 +12,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "eslint": "^9.13.0",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.2",
     "express": "^4.21.1"
   }
 }
