@@ -4,7 +4,6 @@ import { ESLint } from 'eslint';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware to parse JSON requests
 app.use(express.json());
 
 app.post('/', async (req, res) => {
@@ -58,35 +57,6 @@ app.post('/', async (req, res) => {
   res.status(200).json({ issues });
 });
 
-// Start the server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log('🚀 Server is running');
 });
-
-const test = JSON.stringify(`
-interface Props {
-  data: string
-}
-
-function sample(): Props {
-  const CONSTANT_INSIDE_COMPONENT = 'it-should fail';
-}
-
-export const ReactComponent = (props: Props) => {
-  const abc = 'abc' + testConst;
-  var newVar = '';
-  const testFunc = elseIfReturnFunction();
-
-  const snake_case_const = '';
-
-  // Else Return error statement
-  const newFunc = (x) => {
-    if (x) return;
-    else return '1';
-  };
-
-  return <div>test</div>;
-};
-`);
-
-console.log('test', test);
